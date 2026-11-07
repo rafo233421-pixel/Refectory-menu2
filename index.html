@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refectory Coffee & Bakery - Dijital Menü</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-stone-950 text-stone-100 min-h-screen pb-24">
+
+    <!-- Header / Brand Banner -->
+    <header class="relative bg-stone-900 border-b border-stone-800 pt-8 pb-6 px-4 text-center">
+        <div class="absolute top-4 right-4 bg-stone-800 text-amber-400 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 shadow-sm">
+            <i class="fa-solid fa-wifi text-[10px]"></i> Bomonti, Şişli
+        </div>
+        <div class="w-16 h-16 mx-auto mb-3 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 text-amber-400 text-2xl shadow-inner">
+            <i class="fa-solid fa-mug-hot"></i>
+        </div>
+        <h1 class="text-2xl font-bold tracking-tight text-stone-100">Refectory Coffee & Bakery</h1>
+        <p class="text-xs text-stone-400 mt-1 uppercase tracking-widest">Specialty Coffee & Artisan Bakery</p>
+    </header>
+
+    <!-- Category Tabs -->
+    <nav class="sticky top-0 z-40 bg-stone-950/90 backdrop-blur-md border-b border-stone-800/80 px-4 py-3">
+        <div class="flex gap-2 overflow-x-auto hide-scrollbar">
+            <button onclick="filterMenu('all')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-amber-500 text-stone-950 whitespace-nowrap shadow-sm transition-all">Tümü</button>
+            <button onclick="filterMenu('coffee')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-stone-300 border border-stone-800 whitespace-nowrap transition-all">Kahveler</button>
+            <button onclick="filterMenu('bakery')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-stone-300 border border-stone-800 whitespace-nowrap transition-all">Fırın & Tatlı</button>
+            <button onclick="filterMenu('cold')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-stone-900 text-stone-300 border border-stone-800 whitespace-nowrap transition-all">Soğuk İçecekler</button>
+        </div>
+    </nav>
+
+    <!-- Menu List -->
+    <main class="max-w-xl mx-auto px-4 py-6 space-y-4" id="menu-container">
+        
+        <!-- Item 1 -->
+        <div class="menu-item bg-stone-900/60 border border-stone-800/80 rounded-2xl p-4 flex gap-4 items-center shadow-md" data-category="coffee">
+            <div class="w-20 h-20 bg-stone-800 rounded-xl flex-shrink-0 flex items-center justify-center text-amber-400 text-xl border border-stone-700/50">
+                <i class="fa-solid fa-cup-hot"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-start gap-2">
+                    <h3 class="font-semibold text-stone-200 text-sm truncate">Flat White (Nitelikli Çekirdek)</h3>
+                    <span class="text-amber-400 font-bold text-sm">130 ₺</span>
+                </div>
+                <p class="text-xs text-stone-400 mt-1 line-clamp-2">Taze kavrulmuş yöresel espresso ve kadifemsi sıcak süt dokusu.</p>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item bg-stone-900/60 border border-stone-800/80 rounded-2xl p-4 flex gap-4 items-center shadow-md" data-category="bakery">
+            <div class="w-20 h-20 bg-stone-800 rounded-xl flex-shrink-0 flex items-center justify-center text-amber-400 text-xl border border-stone-700/50">
+                <i class="fa-solid fa-croissant"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-start gap-2">
+                    <h3 class="font-semibold text-stone-200 text-sm truncate">Ekşi Mayalı Tereyağlı Kruvasan</h3>
+                    <span class="text-amber-400 font-bold text-sm">110 ₺</span>
+                </div>
+                <p class="text-xs text-stone-400 mt-1 line-clamp-2">Fransız usulü kat kat açılmış, günlük taze tereyağlı artisan kruvasan.</p>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item bg-stone-900/60 border border-stone-800/80 rounded-2xl p-4 flex gap-4 items-center shadow-md" data-category="coffee">
+            <div class="w-20 h-20 bg-stone-800 rounded-xl flex-shrink-0 flex items-center justify-center text-amber-400 text-xl border border-stone-700/50">
+                <i class="fa-solid fa-mug-saucer"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-start gap-2">
+                    <h3 class="font-semibold text-stone-200 text-sm truncate">V60 Filtre Kahve</h3>
+                    <span class="text-amber-400 font-bold text-sm">120 ₺</span>
+                </div>
+                <p class="text-xs text-stone-400 mt-1 line-clamp-2">Günlük değişen yöresel çekirdekler ile özenle demlenmiş filtre kahve.</p>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item bg-stone-900/60 border border-stone-800/80 rounded-2xl p-4 flex gap-4 items-center shadow-md" data-category="cold">
+            <div class="w-20 h-20 bg-stone-800 rounded-xl flex-shrink-0 flex items-center justify-center text-amber-400 text-xl border border-stone-700/50">
+                <i class="fa-solid fa-glass-water"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-start gap-2">
+                    <h3 class="font-semibold text-stone-200 text-sm truncate">Iced Latte</h3>
+                    <span class="text-amber-400 font-bold text-sm">140 ₺</span>
+                </div>
+                <p class="text-xs text-stone-400 mt-1 line-clamp-2">Buz, soğuk süt ve özel harman espresso kombinasyonu.</p>
+            </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-item bg-stone-900/60 border border-stone-800/80 rounded-2xl p-4 flex gap-4 items-center shadow-md" data-category="bakery">
+            <div class="w-20 h-20 bg-stone-800 rounded-xl flex-shrink-0 flex items-center justify-center text-amber-400 text-xl border border-stone-700/50">
+                <i class="fa-solid fa-cake-candles"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex justify-between items-start gap-2">
+                    <h3 class="font-semibold text-stone-200 text-sm truncate">San Sebastian Cheesecake</h3>
+                    <span class="text-amber-400 font-bold text-sm">170 ₺</span>
+                </div>
+                <p class="text-xs text-stone-400 mt-1 line-clamp-2">İçi akışkan, özel Belçika çikolatalı ev yapımı dilim cheesecake.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer info -->
+    <footer class="text-center py-6 text-xs text-stone-500 border-t border-stone-900 mt-8">
+        <p>Refectory Coffee & Bakery © 2026</p>
+        <p class="mt-1 text-amber-500/80 font-medium">Dijital Menü Altyapısı</p>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        function filterMenu(category) {
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-stone-950');
+                btn.classList.add('bg-stone-900', 'text-stone-300', 'border', 'border-stone-800');
+            });
+            event.target.classList.remove('bg-stone-900', 'text-stone-300', 'border', 'border-stone-800');
+            event.target.classList.add('bg-amber-500', 'text-stone-950');
+
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
